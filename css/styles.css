@@ -1,0 +1,237 @@
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(to left, #36343b 0%, #181719 38%, #09090a 100%);
+}
+
+.header {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  gap: 30px;
+  padding: 30px;
+  width: 100vw;
+  opacity: 0;
+  transform: translateY(-40px);
+  animation: slideDown 0.7s ease-out 1s forwards;
+  z-index: 5;
+  box-sizing: border-box;
+}
+.header-contrast {
+  background-color: #000000ad;
+  background: linear-gradient(
+    to left,
+    #36343b00 0%,
+    #121112a3 38%,
+    #000000a4 100%
+  );
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+}
+
+@keyframes slideDown {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.header a {
+  opacity: 0.6;
+  color: #fff;
+  text-decoration: none;
+  transition: opacity 0.2s ease-in-out;
+}
+.header a:hover {
+  opacity: 1;
+}
+
+.anuncio {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 30px;
+  width: 100%;
+  height: 100dvh;
+  margin-left: 10%;
+  box-sizing: border-box;
+}
+.anuncio-modificado {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10%;
+  box-sizing: border-box;
+  padding: 191px 0;
+  gap: 50px;
+  height: 100dvh;
+}
+
+.anuncio article,
+.anuncio-modificado article {
+  min-width: 300px;
+  width: 420px;
+  color: white;
+  align-content: center;
+  z-index: 2;
+}
+.anuncio h1,
+.anuncio-modificado h1 {
+  font-size: 4.5em;
+  margin: 20px 0;
+}
+.anuncio p,
+.anuncio-modificado p {
+  font-size: 2em;
+  opacity: 0.6;
+}
+.anuncio a,
+.anuncio button,
+.anuncio-modificado a,
+.anuncio-modificado button {
+  display: inline-block;
+  text-decoration: none;
+  padding: 15px 10px;
+  border-radius: 20px;
+  border: none;
+  background-color: #202024;
+  color: white;
+  font-size: 1em;
+  font-weight: bold;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+.anuncio a:hover,
+.anuncio-modificado a:hover {
+  background-color: #2b2b30;
+}
+.anuncio button,
+.anuncio-modificado button {
+  background-color: #b50d0d;
+  margin-left: 15px;
+}
+.anuncio button:hover,
+.anuncio-modificado button:hover {
+  background-color: rgb(217, 14, 14);
+}
+.anuncio a img,
+.anuncio-modificado a img {
+  width: 15px;
+  height: 15px;
+  margin: 0 0 -5px 5px;
+  animation: floatY 1s ease-in-out infinite alternate;
+}
+.anuncio button img,
+.anuncio-modificado button img {
+  width: 15px;
+  height: 15px;
+  margin: 0px 0 -1px 10px;
+}
+@keyframes floatY {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-5px);
+  }
+}
+
+.anuncio .video-border {
+  display: flex;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%) translateX(35%);
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to left, #504d53 0%, #2c2b2e 100%);
+  border-radius: 35px;
+  padding: 10px;
+  height: 70dvh;
+  aspect-ratio: 16 / 9;
+  transition: transform 0.3s ease-in-out;
+  animation: slideLeft 0.5s ease-in 1s forwards;
+}
+.anuncio .video-border:hover {
+  transform: translateY(-50%) translateX(20%);
+}
+.anuncio-modificado .video-border-modificado {
+  display: flex;
+  height: auto;
+  width: 80%;
+  aspect-ratio: 16 / 9;
+  padding: 5px;
+  border-radius: 32px;
+}
+
+.anuncio .video-container,
+.anuncio-modificado .video-container {
+  height: 100%;
+  width: 100%;
+  display: inline-block;
+  background-color: #000;
+  border-radius: 25px;
+}
+
+.nosotros {
+  display: flex;
+  justify-content: space-around;
+  gap: 30px;
+  width: 100%;
+  height: 190dvh;
+  background-color: grey;
+}
+section h1 {
+  font-size: 5em;
+  margin: 20px 0;
+}
+section p {
+  font-size: 2em;
+  opacity: 0.6;
+}
+@media (max-width: 1250px) {
+  .anuncio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-left: 0;
+    padding: 50px 0;
+    min-height: 100dvh;
+    height: auto;
+  }
+  .anuncio article {
+    padding: 50px 0;
+    width: 80%;
+  }
+  .anuncio h1 {
+    font-size: 3em;
+    margin: 20px 0;
+  }
+  .anuncio p {
+    font-size: 1.2em;
+    opacity: 0.6;
+  }
+  .anuncio .video-border {
+    display: flex;
+    position: initial;
+    transform: none;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    min-width: 0;
+    width: 80%;
+    transition: none;
+    animation: none;
+    padding: 5px;
+    border-radius: 32px;
+  }
+  .anuncio .video-border:hover {
+    transform: none;
+  }
+}
