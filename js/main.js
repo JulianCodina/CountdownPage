@@ -47,9 +47,10 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
 
-  const countdown = document.querySelector('.countdown h1');
+  const countdown = document.querySelector('.countdown');
+  const countdownH1 = document.querySelector('.countdown h1');
   if (countdown) {
-    const fecha = new Date(2025, 5, 28, 12, 32, 0, 0);
+    const fecha = new Date(2025, 5, 25, 20, 35, 0, 0);
 
     function actualizarRestante() {
       const ahora = new Date();
@@ -66,14 +67,13 @@ document.addEventListener("DOMContentLoaded", function () {
         let texto = "";
         if (dias > 0) texto += `${dias}:`;
         texto += `${horas}:${minutos}:${segundos}`;
-        countdown.textContent = texto;
+        countdownH1.textContent = texto;
 
         if (videoContainer) videoContainer.style.display = "none";
         if (verVideoBtnDesktop) verVideoBtnDesktop.style.display = "none";
         if (verVideoBtnMobile) verVideoBtnMobile.style.display = "none";
         if (verVideoClick) verVideoClick.style.display = "none";
       } else {
-        countdown.style.display = 'none';
         if (videoContainer) videoContainer.style.display = "flex";
         clearInterval(intervaloRestante);
       }
