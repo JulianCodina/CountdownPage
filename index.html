@@ -11,8 +11,25 @@
     <header class="header">
       <a href="#anuncio">Anuncio</a>
       <a href="#nosotros">Nosotros</a>
-      <a href="#">Contacto</a>
+      <a href="#contacto">Contacto</a>
     </header>
+
+    <!-- Modal para video -->
+    <div id="videoModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <iframe
+          id="modalVideo"
+          width="100%"
+          height="100%"
+          src="https://www.youtube.com/embed/uKdnJQaVDL4"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
 
     <!--Anuncio-->
 
@@ -23,12 +40,20 @@
           Lorem ipsum dolor sit amet, lorem ipsum adipiscing elit. Cras ac
           convallis velit.
         </p>
-        <a href="#nosotros"> Seguir leyendo <img src="imgs/down.png" /> </a>
-        <button>Ver video <img src="imgs/play.png" /></button>
+        <div class="buttons" style="display: flex;">
+          <a href="#nosotros"> Seguir leyendo <img src="imgs/down.png" /> </a>
+          <button class="desktop">Ver video <img src="imgs/play.png" /></button>
+          <button class="mobile">Ver video <img src="imgs/play.png" /></button>
+        </div>
       </article>
-      <div class="video-border">
+        <div class="countdown">
+          <h2>Cuenta regresiva</h2>
+          <h1/>
+        </div>
         <div class="video-container">
+          <div class="onclick"></div>
           <iframe
+            id="video"
             height="100%"
             width="100%"
             src="https://www.youtube.com/embed/uKdnJQaVDL4"
@@ -39,7 +64,6 @@
             style="border-radius: 25px"
           >
           </iframe>
-        </div>
       </div>
     </section>
 
@@ -47,12 +71,23 @@
 
     <section id="nosotros" class="nosotros">
       <article>
-        <h1>Titulo Epico</h1>
+        <h2>Nosotros</h2>
         <p>
           Lorem ipsum dolor sit amet, lorem ipsum adipiscing elit. Cras ac
           convallis velit.
         </p>
-        <button>Seguir leyendo</button>
+      </article>
+    </section>
+
+    <!--Contacto-->
+
+    <section id="contacto" class="nosotros">
+      <article>
+        <h2>Contacto</h2>
+        <p>
+          Lorem ipsum dolor sit amet, lorem ipsum adipiscing elit. Cras ac
+          convallis velit.
+        </p>
       </article>
     </section>
   </body>

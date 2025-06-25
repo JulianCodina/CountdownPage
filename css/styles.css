@@ -4,9 +4,9 @@ html {
 body {
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
   font-family: Arial, Helvetica, sans-serif;
   background: linear-gradient(to left, #36343b 0%, #181719 38%, #09090a 100%);
+  overflow-x: hidden;
 }
 
 .header {
@@ -19,27 +19,22 @@ body {
   width: 100vw;
   opacity: 0;
   transform: translateY(-40px);
-  animation: slideDown 0.7s ease-out 1s forwards;
+  animation: slideDown 0.7s ease-out 0.5s forwards;
   z-index: 5;
   box-sizing: border-box;
+  background-color: #00000000;
+  transition: background-color 0.3s ease-in;
 }
-.header-contrast {
-  background-color: #000000ad;
-  background: linear-gradient(
-    to left,
-    #36343b00 0%,
-    #121112a3 38%,
-    #000000a4 100%
-  );
-  backdrop-filter: blur(3px);
-  -webkit-backdrop-filter: blur(3px);
-}
-
 @keyframes slideDown {
   to {
     opacity: 1;
     transform: translateY(0);
   }
+}
+.header-contrast {
+  background-color: #000000ad;
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
 }
 
 .header a {
@@ -54,46 +49,35 @@ body {
 
 .anuncio {
   display: flex;
-  justify-content: space-between;
   align-items: stretch;
   gap: 30px;
   width: 100%;
   height: 100dvh;
-  margin-left: 10%;
+  padding-top: 20dvh;
+  padding-left: 10%;
   box-sizing: border-box;
-}
-.anuncio-modificado {
-  display: flex;
-  flex-direction: column;
-  margin-left: 10%;
-  box-sizing: border-box;
-  padding: 191px 0;
-  gap: 50px;
-  height: 100dvh;
+  overflow-x: hidden;
 }
 
-.anuncio article,
-.anuncio-modificado article {
+.anuncio article {
+  display: flex;
+  flex-direction: column;
   min-width: 300px;
   width: 420px;
   color: white;
-  align-content: center;
   z-index: 2;
 }
-.anuncio h1,
-.anuncio-modificado h1 {
+.anuncio h1 {
   font-size: 4.5em;
   margin: 20px 0;
 }
-.anuncio p,
-.anuncio-modificado p {
+.anuncio p {
   font-size: 2em;
   opacity: 0.6;
 }
+
 .anuncio a,
-.anuncio button,
-.anuncio-modificado a,
-.anuncio-modificado button {
+.anuncio button {
   display: inline-block;
   text-decoration: none;
   padding: 15px 10px;
@@ -107,46 +91,63 @@ body {
   cursor: pointer;
   transition: background-color 0.2s ease-in-out;
 }
-.anuncio a:hover,
-.anuncio-modificado a:hover {
+
+.anuncio a:hover {
   background-color: #2b2b30;
 }
-.anuncio button,
-.anuncio-modificado button {
+.anuncio button {
   background-color: #b50d0d;
   margin-left: 15px;
 }
-.anuncio button:hover,
-.anuncio-modificado button:hover {
+.anuncio button:hover {
   background-color: rgb(217, 14, 14);
 }
-.anuncio a img,
-.anuncio-modificado a img {
+.anuncio a img {
   width: 15px;
   height: 15px;
   margin: 0 0 -5px 5px;
   animation: floatY 1s ease-in-out infinite alternate;
 }
-.anuncio button img,
-.anuncio-modificado button img {
+@keyframes floatY {
+  from {
+    transform: translateY(-4px);
+  }
+  to {
+    transform: translateY(0px);
+  }
+}
+.anuncio button img {
   width: 15px;
   height: 15px;
   margin: 0px 0 -1px 10px;
 }
-@keyframes floatY {
-  from {
-    transform: translateY(0);
-  }
-  to {
-    transform: translateY(-5px);
-  }
+
+.countdown {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  right: 0;
+  top: 45dvb;
+  transform: translateY(-50%) translateX(35%);
+  align-items: start;
+  justify-content: center;
+  background-color: white;
+  width: 600px;
+  height: 40dvh;
+  padding: 20px;
+  box-sizing: border-box;
+  background: linear-gradient(to left, #dddae0 0%, #9f9ca7e8 100%);
+  border-radius: 35px;
+  padding: 20px;
+  transition: transform 0.3s ease-in-out;
+  animation: slideLeft 0.5s ease-in;
 }
 
-.anuncio .video-border {
+.video-container {
   display: flex;
   position: absolute;
   right: 0;
-  top: 50%;
+  top: 50dvb;
   transform: translateY(-50%) translateX(35%);
   align-items: center;
   justify-content: center;
@@ -154,47 +155,107 @@ body {
   border-radius: 35px;
   padding: 10px;
   height: 70dvh;
+  box-sizing: border-box;
   aspect-ratio: 16 / 9;
   transition: transform 0.3s ease-in-out;
-  animation: slideLeft 0.5s ease-in 1s forwards;
+  animation: slideLeft 0.5s ease-in;
 }
-.anuncio .video-border:hover {
+.video-container:hover, .countdown:hover {
   transform: translateY(-50%) translateX(20%);
 }
-.anuncio-modificado .video-border-modificado {
-  display: flex;
-  height: auto;
-  width: 80%;
-  aspect-ratio: 16 / 9;
-  padding: 5px;
-  border-radius: 32px;
+.anuncio .onclick{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #00000034;
+  border-radius: inherit;
+  cursor: pointer;
+  z-index: 10;
 }
 
-.anuncio .video-container,
-.anuncio-modificado .video-container {
-  height: 100%;
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-  display: inline-block;
-  background-color: #000;
-  border-radius: 25px;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  z-index: 100;
 }
+.modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: auto;
+  height: 85%;
+  aspect-ratio: 16 / 9;
+  background-color: #121113be;
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  animation: popup 0.3s ease-in;
+}
+@keyframes popup {
+  from {
+    transform: translate(-50%, -50%) scale(0.5);
+    opacity: 0;
+  }
+  to {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+}
+.close {
+  display: flex;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  font-size: 30px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  background-color: #0e0e0f;
+  height: 25px;
+  width: 25px;
+  padding: 5px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+.modal iframe {
+  border-radius: 15px;
+  background: #000;
+}
+
+
 
 .nosotros {
   display: flex;
   justify-content: space-around;
   gap: 30px;
   width: 100%;
-  height: 190dvh;
+  height: 90dvh;
+  padding: 100px 0;
+  box-sizing: border-box;
   background-color: grey;
 }
-section h1 {
-  font-size: 5em;
-  margin: 20px 0;
+
+.nosotros h2 {
+  margin: 0px 0 -20px;
 }
-section p {
-  font-size: 2em;
-  opacity: 0.6;
+.nosotros h2 {
+  font-size: 3em;
 }
+
 @media (max-width: 1250px) {
   .anuncio {
     display: flex;
@@ -209,6 +270,7 @@ section p {
   .anuncio article {
     padding: 50px 0;
     width: 80%;
+    max-width: 400px;
   }
   .anuncio h1 {
     font-size: 3em;
@@ -218,9 +280,17 @@ section p {
     font-size: 1.2em;
     opacity: 0.6;
   }
-  .anuncio .video-border {
+  .countdown{
     display: flex;
-    position: initial;
+    top: 85dvb;
+    height: 140px;
+    width: 450px;
+  }
+
+  .anuncio .video-container {
+    display: flex;
+    position: relative;
+    top: 0;
     transform: none;
     height: auto;
     aspect-ratio: 16 / 9;
@@ -229,9 +299,30 @@ section p {
     transition: none;
     animation: none;
     padding: 5px;
-    border-radius: 32px;
+    border-radius: 30px;
   }
-  .anuncio .video-border:hover {
+  .anuncio .video-container:hover{
     transform: none;
+  }
+  .anuncio .onclick{
+    display: none;
+  }
+}
+
+/* Mostrar solo el botón desktop en pantallas grandes y solo el botón mobile en pantallas pequeñas */
+@media (max-width: 1250px) {
+  .anuncio .desktop {
+    display: none;
+  }
+  .anuncio .mobile {
+    display: inline-block;
+  }
+}
+@media (min-width: 1251px) {
+  .anuncio .desktop {
+    display: inline-block;
+  }
+  .anuncio .mobile {
+    display: none ;
   }
 }
