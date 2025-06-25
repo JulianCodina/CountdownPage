@@ -149,7 +149,7 @@ body {
   position: absolute;
   right: 0;
   top: 50dvb;
-  transform: translateY(-50%) translateX(100%);
+  transform: translateY(-50%) translateX(35%);
   align-items: center;
   justify-content: center;
   background: linear-gradient(to left, #504d53 0%, #2c2b2e 100%);
@@ -159,7 +159,6 @@ body {
   box-sizing: border-box;
   aspect-ratio: 16 / 9;
   transition: transform 0.3s ease-in-out;
-  animation: slideLeft 0.5s ease-in-out 0.5s forwards;
 }
 .video-container:hover, .countdown:hover {
   transform: translateY(-50%) translateX(20%);
