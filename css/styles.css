@@ -9,172 +9,6 @@ body {
   overflow-x: hidden;
 }
 
-.header {
-  display: flex;
-  position: fixed;
-  top: 0;
-  left: 0;
-  gap: 30px;
-  padding: 30px;
-  width: 100vw;
-  opacity: 0;
-  transform: translateY(-40px);
-  animation: slideDown 0.7s ease-out 0.5s forwards;
-  z-index: 5;
-  box-sizing: border-box;
-  background-color: #00000000;
-  transition: background-color 0.3s ease-in;
-}
-@keyframes slideDown {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-.header-contrast {
-  background-color: #000000ad;
-  backdrop-filter: blur(3px);
-  -webkit-backdrop-filter: blur(3px);
-}
-
-.header a {
-  opacity: 0.6;
-  color: #fff;
-  text-decoration: none;
-  transition: opacity 0.2s ease-in-out;
-}
-.header a:hover {
-  opacity: 1;
-}
-
-.anuncio {
-  display: flex;
-  align-items: stretch;
-  gap: 30px;
-  width: 100%;
-  height: 100dvh;
-  padding-top: 20dvh;
-  padding-left: 10%;
-  box-sizing: border-box;
-  overflow-x: hidden;
-}
-
-.anuncio article {
-  display: flex;
-  flex-direction: column;
-  min-width: 300px;
-  width: 420px;
-  color: white;
-  z-index: 2;
-}
-.anuncio h1 {
-  font-size: 4.5em;
-  margin: 20px 0;
-}
-.anuncio p {
-  font-size: 2em;
-  opacity: 0.6;
-}
-
-.anuncio a,
-.anuncio button {
-  display: inline-block;
-  text-decoration: none;
-  padding: 15px 10px;
-  border-radius: 20px;
-  border: none;
-  background-color: #202024;
-  color: white;
-  font-size: 1em;
-  font-weight: bold;
-  align-items: center;
-  cursor: pointer;
-  transition: background-color 0.2s ease-in-out;
-}
-
-.anuncio a:hover {
-  background-color: #2b2b30;
-}
-.anuncio button {
-  background-color: #b50d0d;
-  margin-left: 15px;
-}
-.anuncio button:hover {
-  background-color: rgb(217, 14, 14);
-}
-.anuncio a img {
-  width: 15px;
-  height: 15px;
-  margin: 0 0 -5px 5px;
-  animation: floatY 1s ease-in-out infinite alternate;
-}
-@keyframes floatY {
-  from {
-    transform: translateY(-4px);
-  }
-  to {
-    transform: translateY(0px);
-  }
-}
-.anuncio button img {
-  width: 15px;
-  height: 15px;
-  margin: 0px 0 -1px 10px;
-}
-
-.countdown {
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  right: 0;
-  top: 45dvb;
-  transform: translateY(-50%) translateX(35%);
-  align-items: start;
-  justify-content: center;
-  background-color: white;
-  width: 600px;
-  height: 40dvh;
-  padding: 20px;
-  box-sizing: border-box;
-  background: linear-gradient(to left, #dddae0 0%, #9f9ca7e8 100%);
-  border-radius: 35px;
-  padding: 20px;
-  transition: transform 0.3s ease-in-out;
-  animation: slideLeft 0.5s ease-in;
-}
-
-.video-container {
-  display: flex;
-  position: absolute;
-  right: 0;
-  top: 50dvb;
-  transform: translateY(-50%) translateX(35%);
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(to left, #504d53 0%, #2c2b2e 100%);
-  border-radius: 35px;
-  padding: 10px;
-  height: 70dvh;
-  box-sizing: border-box;
-  aspect-ratio: 16 / 9;
-  transition: transform 0.3s ease-in-out;
-  animation: slideLeft 0.5s ease-in;
-}
-.video-container:hover, .countdown:hover {
-  transform: translateY(-50%) translateX(20%);
-}
-.anuncio .onclick{
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #00000034;
-  border-radius: inherit;
-  cursor: pointer;
-  z-index: 10;
-}
-
 /* Modal */
 .modal {
   display: none;
@@ -236,93 +70,76 @@ body {
   background: #000;
 }
 
-
-
-.nosotros {
+.header {
   display: flex;
-  justify-content: space-around;
+  position: fixed;
+  top: 0;
+  left: 0;
+  gap: 30px;
+  padding: 30px;
+  width: 100vw;
+  opacity: 0;
+  transform: translateY(-40px);
+  animation: slideDown 0.7s ease-out 0.5s forwards;
+  z-index: 5;
+  box-sizing: border-box;
+  background-color: #00000000;
+  transition: background-color 0.3s ease-in;
+}
+@keyframes slideDown {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.header a {
+  opacity: 0.6;
+  color: #fff;
+  text-decoration: none;
+  transition: opacity 0.2s ease-in-out;
+}
+.header a:hover {
+  opacity: 1;
+}
+
+.anuncio {
+  display: flex;
+  align-items: stretch;
   gap: 30px;
   width: 100%;
-  height: 90dvh;
-  padding: 100px 0;
+  height: 100dvh;
+  padding-top: 20dvh;
+  padding-left: 10%;
   box-sizing: border-box;
-  background-color: grey;
+  overflow-x: hidden;
 }
 
-.nosotros h2 {
-  margin: 0px 0 -20px;
+.anuncio h1 {
+  font-size: 4.5em;
+  margin: 20px 0;
 }
-.nosotros h2 {
-  font-size: 3em;
+
+.countdown {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  right: 0;
+  top: 45dvb;
+  transform: translateY(-50%) translateX(35%);
+  align-items: start;
+  justify-content: center;
+  background-color: white;
+  width: 600px;
+  height: 40dvh;
+  padding: 20px;
+  box-sizing: border-box;
+  background: linear-gradient(to left, #dddae0 0%, #9f9ca7e8 100%);
+  border-radius: 35px;
+  padding: 20px;
+  transition: transform 0.3s ease-in-out;
+  animation: slideLeft 0.5s ease-in;
 }
 
 @media (max-width: 1250px) {
-  .anuncio {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    margin-left: 0;
-    padding: 50px 0;
-    min-height: 100dvh;
-    height: auto;
-  }
-  .anuncio article {
-    padding: 50px 0;
-    width: 80%;
-    max-width: 400px;
-  }
-  .anuncio h1 {
-    font-size: 3em;
-    margin: 20px 0;
-  }
-  .anuncio p {
-    font-size: 1.2em;
-    opacity: 0.6;
-  }
-  .countdown{
-    display: flex;
-    top: 85dvb;
-    height: 140px;
-    width: 450px;
-  }
-
-  .anuncio .video-container {
-    display: flex;
-    position: relative;
-    top: 0;
-    transform: none;
-    height: auto;
-    aspect-ratio: 16 / 9;
-    min-width: 0;
-    width: 80%;
-    transition: none;
-    animation: none;
-    padding: 5px;
-    border-radius: 30px;
-  }
-  .anuncio .video-container:hover{
-    transform: none;
-  }
-  .anuncio .onclick{
-    display: none;
-  }
-}
-
-/* Mostrar solo el botón desktop en pantallas grandes y solo el botón mobile en pantallas pequeñas */
-@media (max-width: 1250px) {
-  .anuncio .desktop {
-    display: none;
-  }
-  .anuncio .mobile {
-    display: inline-block;
-  }
-}
-@media (min-width: 1251px) {
-  .anuncio .desktop {
-    display: inline-block;
-  }
-  .anuncio .mobile {
-    display: none ;
-  }
 }
