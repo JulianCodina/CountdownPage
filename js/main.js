@@ -2,33 +2,21 @@ document.addEventListener("DOMContentLoaded", function () {
   const header = document.querySelector(".header");
   window.addEventListener("scroll", function () {
     if (window.scrollY > 40) {
-      header.classList.add("header-contrast");
+      // header.classList.add("header-contrast");
     } else {
-      header.classList.remove("header-contrast");
+      // header.classList.remove("header-contrast");
     }
   });
-  const verVideoBtnDesktop = document.querySelector(".anuncio .desktop");
-  const verVideoBtnMobile = document.querySelector(".anuncio .mobile");
-  const verVideoClick = document.querySelector(".anuncio .onclick");
+
+  const verVideoBtn = document.querySelector(".videoButton");
   const modal = document.getElementById("videoModal");
   const modalVideo = document.getElementById("modalVideo");
   const closeBtn = document.querySelector(".close");
-  const videoContainer = document.querySelector(".video-container");
-  const videoSrc = modalVideo.src;
+  
 
-  if (verVideoBtnDesktop) {
-    verVideoBtnDesktop.addEventListener("click", function () {
-      modal.style.display = "block";
-    });
-  }
-  if (verVideoClick) {
-    verVideoClick.addEventListener("click", function () {
-      modal.style.display = "block";
-    });
-  }
-  if (verVideoBtnMobile) {
-    verVideoBtnMobile.addEventListener("click", function () {
-      window.scrollBy({ top: 330, left: 0, behavior: "smooth" });
+  if (verVideoBtn) {
+    verVideoBtn.addEventListener("click", function () {
+      // modal.style.display = "block";
     });
   }
 
@@ -47,10 +35,13 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
 
-  const countdown = document.querySelector('.countdown');
-  const countdownH1 = document.querySelector('.countdown h1');
+  const countdown = document.getElementById('countdown');
   if (countdown) {
-    const fecha = new Date(2025, 5, 25, 20, 35, 0, 0);
+    const fecha = new Date(2025, 5, 29, 20, 35, 0, 0);
+
+    function dobleDigito(num) {
+      return num.toString().padStart(2, "0");
+    }
 
     function actualizarRestante() {
       const ahora = new Date();
@@ -63,18 +54,14 @@ document.addEventListener("DOMContentLoaded", function () {
         const minutos = Math.floor((totalSegundos % 3600) / 60);
         const segundos = totalSegundos % 60;
 
-        countdown.style.display = 'flex';
         let texto = "";
-        if (dias > 0) texto += `${dias}:`;
-        texto += `${horas}:${minutos}:${segundos}`;
-        countdownH1.textContent = texto;
+        if (dias > 0) texto += `${dobleDigito(dias)} : `;
+        texto += `${dobleDigito(horas)} : ${dobleDigito(minutos)} : ${dobleDigito(segundos)}`;
+        countdown.textContent = texto;
+        console.log(texto)
 
-        if (videoContainer) videoContainer.style.display = "none";
-        if (verVideoBtnDesktop) verVideoBtnDesktop.style.display = "none";
-        if (verVideoBtnMobile) verVideoBtnMobile.style.display = "none";
-        if (verVideoClick) verVideoClick.style.display = "none";
+        // if (verVideoBtn) verVideoBtn.style.display = "none";
       } else {
-        if (videoContainer) videoContainer.style.display = "flex";
         clearInterval(intervaloRestante);
       }
     }

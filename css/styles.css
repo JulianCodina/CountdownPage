@@ -5,174 +5,19 @@ body {
   margin: 0;
   padding: 0;
   font-family: Arial, Helvetica, sans-serif;
-  background: linear-gradient(to left, #36343b 0%, #181719 38%, #09090a 100%);
   overflow-x: hidden;
 }
-
-.header {
-  display: flex;
-  position: fixed;
-  top: 0;
-  left: 0;
-  gap: 30px;
-  padding: 30px;
-  width: 100vw;
-  opacity: 0;
-  transform: translateY(-40px);
-  animation: slideDown 0.7s ease-out 0.5s forwards;
-  z-index: 5;
-  box-sizing: border-box;
-  background-color: #00000000;
-  transition: background-color 0.3s ease-in;
-}
-@keyframes slideDown {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-.header-contrast {
-  background-color: #000000ad;
-  backdrop-filter: blur(3px);
-  -webkit-backdrop-filter: blur(3px);
-}
-
-.header a {
-  opacity: 0.6;
-  color: #fff;
-  text-decoration: none;
-  transition: opacity 0.2s ease-in-out;
-}
-.header a:hover {
-  opacity: 1;
-}
-
-.anuncio {
-  display: flex;
-  align-items: stretch;
-  gap: 30px;
-  width: 100%;
-  height: 100dvh;
-  padding-top: 20dvh;
-  padding-left: 10%;
-  box-sizing: border-box;
-  overflow-x: hidden;
-}
-
-.anuncio article {
-  display: flex;
-  flex-direction: column;
-  min-width: 300px;
-  width: 420px;
-  color: white;
-  z-index: 2;
-}
-.anuncio h1 {
-  font-size: 4.5em;
-  margin: 20px 0;
-}
-.anuncio p {
-  font-size: 2em;
-  opacity: 0.6;
-}
-
-.anuncio a,
-.anuncio button {
-  display: inline-block;
-  text-decoration: none;
-  padding: 15px 10px;
-  border-radius: 20px;
-  border: none;
-  background-color: #202024;
-  color: white;
-  font-size: 1em;
+@font-face {
+  font-family: 'Zuume Rough Bold';
+  src: url('../fonts/zuumerough-bold.otf') format('opentype');
   font-weight: bold;
-  align-items: center;
-  cursor: pointer;
-  transition: background-color 0.2s ease-in-out;
+  font-style: normal;
 }
-
-.anuncio a:hover {
-  background-color: #2b2b30;
-}
-.anuncio button {
-  background-color: #b50d0d;
-  margin-left: 15px;
-}
-.anuncio button:hover {
-  background-color: rgb(217, 14, 14);
-}
-.anuncio a img {
-  width: 15px;
-  height: 15px;
-  margin: 0 0 -5px 5px;
-  animation: floatY 1s ease-in-out infinite alternate;
-}
-@keyframes floatY {
-  from {
-    transform: translateY(-4px);
-  }
-  to {
-    transform: translateY(0px);
-  }
-}
-.anuncio button img {
-  width: 15px;
-  height: 15px;
-  margin: 0px 0 -1px 10px;
-}
-
-.countdown {
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  right: 0;
-  top: 45dvb;
-  transform: translateY(-50%) translateX(35%);
-  align-items: start;
-  justify-content: center;
-  background-color: white;
-  width: 600px;
-  height: 40dvh;
-  padding: 20px;
-  box-sizing: border-box;
-  background: linear-gradient(to left, #dddae0 0%, #9f9ca7e8 100%);
-  border-radius: 35px;
-  padding: 20px;
-  transition: transform 0.3s ease-in-out;
-  animation: slideLeft 0.5s ease-in;
-}
-
-.video-container {
-  display: flex;
-  position: absolute;
-  right: 0;
-  top: 50dvb;
-  transform: translateY(-50%) translateX(35%);
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(to left, #504d53 0%, #2c2b2e 100%);
-  border-radius: 35px;
-  padding: 10px;
-  height: 70dvh;
-  box-sizing: border-box;
-  aspect-ratio: 16 / 9;
-  transition: transform 0.3s ease-in-out;
-  animation: slideLeft 0.5s ease-in;
-}
-.video-container:hover, .countdown:hover {
-  transform: translateY(-50%) translateX(20%);
-}
-.anuncio .onclick{
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #00000034;
-  border-radius: inherit;
-  cursor: pointer;
-  z-index: 10;
+@font-face {
+  font-family: 'Zuume Rough';
+  src: url('../fonts/zuumerough-regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
 }
 
 /* Modal */
@@ -238,73 +83,61 @@ body {
 
 .header {
   display: flex;
+  flex-direction: column;
   position: fixed;
   top: 0;
   left: 0;
-  gap: 30px;
-  padding: 30px;
-  width: 100vw;
-  opacity: 0;
-  transform: translateY(-40px);
-  animation: slideDown 0.7s ease-out 0.5s forwards;
+  width: 100%;
   z-index: 5;
-  box-sizing: border-box;
-  background-color: #00000000;
-  transition: background-color 0.3s ease-in;
+  background-color: #404e34;
+  box-shadow: 0 5px 20px 0px #0c110709;
 }
-@keyframes slideDown {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.header .navbar{
+  display: flex;
+  justify-content: space-around;
+  padding: 5px 0 2px;
+  font-family: 'Zuume Rough', Arial, Helvetica, sans-serif;
+  font-size: 25px;
 }
 
 .header a {
-  opacity: 0.6;
-  color: #fff;
   text-decoration: none;
-  transition: opacity 0.2s ease-in-out;
+  color: rgba(255, 255, 255, 0.705);
+  transition: color 0.2s ease-in-out;
 }
-.header a:hover {
-  opacity: 1;
+.header a:hover{
+  color: white;
 }
 
-.anuncio {
+.sinopsis {
   display: flex;
-  align-items: stretch;
-  gap: 30px;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   height: 100dvh;
-  padding-top: 20dvh;
-  padding-left: 10%;
+  padding-top: 130px;
+  background-color: #1e382f;
   box-sizing: border-box;
-  overflow-x: hidden;
 }
 
-.anuncio h1 {
-  font-size: 4.5em;
-  margin: 20px 0;
-}
-
-.countdown {
+.countdown-container {
   display: flex;
   flex-direction: column;
-  position: absolute;
-  right: 0;
-  top: 45dvb;
-  transform: translateY(-50%) translateX(35%);
-  align-items: start;
+  align-items: center;
   justify-content: center;
-  background-color: white;
-  width: 600px;
-  height: 40dvh;
-  padding: 20px;
+  background-color: black;
+  width: 50%;
+  min-width: 350px;
+  aspect-ratio: 16 / 9;
   box-sizing: border-box;
-  background: linear-gradient(to left, #dddae0 0%, #9f9ca7e8 100%);
-  border-radius: 35px;
-  padding: 20px;
-  transition: transform 0.3s ease-in-out;
-  animation: slideLeft 0.5s ease-in;
+  border-radius: 5px;
+}
+
+#countdown {
+  font-size: clamp(4rem, 9vw, 8rem);
+  margin: 20px 0;
+  color: white;
+  font-family: 'Zuume Rough Bold', Arial, Helvetica, sans-serif;
 }
 
 @media (max-width: 1250px) {
